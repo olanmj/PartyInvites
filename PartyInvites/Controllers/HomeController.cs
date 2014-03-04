@@ -14,13 +14,6 @@ namespace PartyInvites.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            HttpCookie c = Request.Cookies.Get("phone");
-            if (c == null)
-            {
-                c = new HttpCookie("phone", "12345");
-            }
-                c.Expires = DateTime.Now.AddDays(2);
-                Response.Cookies.Add(c);
 
             DateTime time = DateTime.Now;
             string currentTime = time.ToShortTimeString();
