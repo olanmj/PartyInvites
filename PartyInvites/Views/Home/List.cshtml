@@ -1,4 +1,8 @@
-﻿@model IEnumerable<PartyInvites.Models.GuestResponse>
+﻿@using GridMvc.Html
+
+@model IEnumerable<PartyInvites.Models.GuestResponse>
+
+
 
 @{
     Layout = null;
@@ -25,35 +29,45 @@
 
        }
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WillAttend)
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayTextFor(modelItem =>item.WillAttend)
-                </td>
-            </tr>
-        }
+    @Html.Grid(Model).Columns(cols =>
+    {
+        cols.Add(r => r.Name).Titled("Name").SetWidth(200).Sortable(true);
+        cols.Add(r => r.Phone).Titled("Phone").SetWidth(100);
+        cols.Add(r => r.WillAttend).Titled("Be There").SetWidth(100).Sortable(true);
+    }
+    )
 
-    </table>
-</body>
+        @*<table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WillAttend)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayTextFor(modelItem =>item.WillAttend)
+                        </td>
+                    </tr>
+                }
+
+            </table>*@
+
+    </body>
 </html>
