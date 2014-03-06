@@ -16,15 +16,14 @@
         @Html.ActionLink("Create New", "RsvpForm")
     </p>
     <p>
-        @using (Html.BeginForm("List", "Home", FormMethod.Get))
+        @using (Html.BeginForm())
         {
             @Html.DropDownList("Coming", new[] {
                                    new SelectListItem() {Text = "Attending", Value = bool.TrueString},
                                    new SelectListItem() {Text = "Not attending", Value = bool.FalseString}
-                               }, "All")
+                               }, "All", new { @onchange = "this.form.submit()" })
 
-            <input type="submit" value="Filter" />
-        }
+       }
     </p>
     <table class="table">
         <tr>

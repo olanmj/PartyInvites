@@ -14,7 +14,10 @@
     <div> 
         <p>We're planning an exciting party</p>
         @ViewBag.Greeting, the time is @ViewBag.Time in MVC land
+    </div>
+    <div>
         @Html.ActionLink("RSVP Now", "RsvpForm")
+        @Html.ActionLink("Show List", "List")
     </div>
 </body>
 </html>
