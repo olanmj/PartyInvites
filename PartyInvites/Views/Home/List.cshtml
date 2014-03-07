@@ -4,9 +4,7 @@
 
 
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -16,6 +14,7 @@
     <title>List</title>
 </head>
 <body>
+    <div>
     <p>
         @Html.ActionLink("Create New", "RsvpForm")
     </p>
@@ -29,12 +28,14 @@
 
        }
     </p>
-
-    @Html.Grid(Model).Columns(cols =>
+        </div>
+    @Html.Grid(Model).Columns(
+    
+    cols =>
     {
-        cols.Add(r => r.Name).Titled("Name").SetWidth(200).Sortable(true);
-        cols.Add(r => r.Phone).Titled("Phone").SetWidth(100);
-        cols.Add(r => r.WillAttend).Titled("Be There").SetWidth(100).Sortable(true);
+        cols.Add(r => r.Name).SetWidth(120).Sortable(true);
+        cols.Add(r => r.Phone).SetWidth(120);
+        cols.Add(r => r.WillAttend).Titled("Will Attend").SetWidth(100).Sortable(true);
     }
     )
 

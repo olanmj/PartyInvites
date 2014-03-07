@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GridMvc.DataAnnotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
@@ -17,6 +18,7 @@ namespace PartyInvites.Models
         
         [Required( ErrorMessage = "Please indicate if you will attend")] 
         [Display(Name="Will Attend")]
+        [GridColumn(Title = "Will Attend")]
         public bool? WillAttend { get; set; }
     }
 
